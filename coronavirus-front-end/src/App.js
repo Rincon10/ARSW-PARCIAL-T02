@@ -8,6 +8,7 @@ const App = () => {
     const handleChange = ( event ) =>{
         const { value } = event.target;
         setCountry( value ); 
+        
     }
     return (
         <div>
