@@ -11,7 +11,10 @@ npm install
 npm start
 ```
 Para verlo en heroku 
-[![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)]()
+
+
+[![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://coronavirus-front-end.herokuapp.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
