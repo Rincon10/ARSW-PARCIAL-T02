@@ -4,7 +4,7 @@ package edu.eci.arsw.coronavirus.model;
  * @author Iván Camilo Rincón Saavedra
  * @version 10/28/2021
  */
-public class CovidCase {
+public class CovidStatistic {
     private int recovered;
     private int deaths;
     private int confirmed;
@@ -12,11 +12,11 @@ public class CovidCase {
     private String lastReported;
     private String location;
 
-    public CovidCase(){
+    public CovidStatistic(){
 
     }
 
-    public CovidCase(int recovered, int deaths, int confirmed, String lastChecked, String lastReported, String location){
+    public CovidStatistic(int recovered, int deaths, int confirmed, String lastChecked, String lastReported, String location){
         this.recovered=recovered;
         this.deaths=deaths;
         this.confirmed=confirmed;
