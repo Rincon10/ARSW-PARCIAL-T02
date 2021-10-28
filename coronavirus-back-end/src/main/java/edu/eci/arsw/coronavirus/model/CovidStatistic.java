@@ -5,18 +5,17 @@ package edu.eci.arsw.coronavirus.model;
  * @version 10/28/2021
  */
 public class CovidStatistic {
-    private int recovered;
-    private int deaths;
-    private int confirmed;
+    private Integer recovered;
+    private Integer deaths;
+    private Integer confirmed;
     private String lastChecked;
     private String lastReported;
     private String location;
 
     public CovidStatistic(){
-
     }
 
-    public CovidStatistic(int recovered, int deaths, int confirmed, String lastChecked, String lastReported, String location){
+    public CovidStatistic(Integer recovered, Integer deaths, Integer confirmed, String lastChecked, String lastReported, String location){
         this.recovered=recovered;
         this.deaths=deaths;
         this.confirmed=confirmed;
@@ -25,27 +24,27 @@ public class CovidStatistic {
         this.location=location;
     }
 
-    public int getRecovered() {
+    public Integer getRecovered() {
         return recovered;
     }
 
-    public void setRecovered(int recovered) {
+    public void setRecovered(Integer recovered) {
         this.recovered = recovered;
     }
 
-    public int getDeaths() {
+    public Integer getDeaths() {
         return deaths;
     }
 
-    public void setDeaths(int deaths) {
+    public void setDeaths(Integer deaths) {
         this.deaths = deaths;
     }
 
-    public int getConfirmed() {
+    public Integer getConfirmed() {
         return confirmed;
     }
 
-    public void setConfirmed(int confirmed) {
+    public void setConfirmed(Integer confirmed) {
         this.confirmed = confirmed;
     }
 
