@@ -6,6 +6,7 @@ package edu.eci.arsw.coronavirus.controllers;
  * Clase que se encargara de manejar las peticions Http que realize el front
  */
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import edu.eci.arsw.coronavirus.services.CoronavirusServicesException;
 import edu.eci.arsw.coronavirus.services.ICoronavirusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,10 @@ public class CoronavirusStatsController {
         } catch (CoronavirusServicesException ex) {
             Logger.getLogger(CoronavirusStatsController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (UnirestException e) {
+            e.printStackTrace();
+            Logger.getLogger(CoronavirusStatsController.class.getName()).log(Level.SEVERE, null, e);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.FORBIDDEN);
         }
     }
 

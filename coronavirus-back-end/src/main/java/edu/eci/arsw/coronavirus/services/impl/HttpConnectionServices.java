@@ -5,11 +5,13 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import edu.eci.arsw.coronavirus.services.IHttpConnectionServices;
 import com.mashape.unirest.http.Unirest;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Iván Camilo Rincón Saavedra
  * @version 10/28/2021
  */
+@Service
 public class HttpConnectionServices implements IHttpConnectionServices {
     private final String URL = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats";
     private final String APIid= "4f04707326msh95e7ff3629c20d0p119c81jsn52a936c0ca0a";

@@ -1,9 +1,14 @@
 package edu.eci.arsw.coronavirus.services.impl;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import edu.eci.arsw.coronavirus.model.CovidCase;
 import edu.eci.arsw.coronavirus.services.ICoronavirusService;
+import edu.eci.arsw.coronavirus.services.IHttpConnectionServices;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +18,8 @@ import java.util.List;
  */
 @Service
 public class CoronavirusService implements ICoronavirusService {
+    @Autowired
+    IHttpConnectionServices http;
 
     @Override
     public List<CovidCase> getAllCases() {
@@ -20,7 +27,16 @@ public class CoronavirusService implements ICoronavirusService {
     }
 
     @Override
-    public List<CovidCase> getCasesByCountry(String countryName) {
+    public CovidCase getCasesByCountry(String countryName) throws UnirestException {
+        JSONObject data = http.getCasesByCountry(countryName);
+        CovidCase covidCase = new CovidCase();
+
+
+//
+//        for (String attribute : attributes) {
+//            data.
+//        }
+//        data.get()
         return null;
     }
 }
