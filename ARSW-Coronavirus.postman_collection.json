@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "cab5329a-f298-4111-80cf-af839997e506",
+		"name": "ARSW-Coronavirus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All cases",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "covid-19-coronavirus-statistics.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "34f05cff54msh30ba6f36c91c183p166499jsn555917ef62b8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats",
+					"protocol": "https",
+					"host": [
+						"covid-19-coronavirus-statistics",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cases by country",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-host",
+						"value": "covid-19-coronavirus-statistics.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-key",
+						"value": "34f05cff54msh30ba6f36c91c183p166499jsn555917ef62b8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=Canada",
+					"protocol": "https",
+					"host": [
+						"covid-19-coronavirus-statistics",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Canada"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
