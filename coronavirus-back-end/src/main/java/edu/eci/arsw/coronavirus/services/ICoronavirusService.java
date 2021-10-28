@@ -9,7 +9,6 @@ import java.util.List;
  * @author Iván Camilo Rincón Saavedra
  * @version 10/28/2021
  */
-@Service
 public interface ICoronavirusService {
     //Get petition
 

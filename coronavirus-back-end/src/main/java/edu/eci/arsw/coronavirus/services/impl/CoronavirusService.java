@@ -2,6 +2,7 @@ package edu.eci.arsw.coronavirus.services.impl;
 
 import edu.eci.arsw.coronavirus.model.CovidCase;
 import edu.eci.arsw.coronavirus.services.ICoronavirusService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @version 10/28/2021
  * Clase que se encargara de realizar los servicios de coronavirus
  */
+@Service
 public class CoronavirusService implements ICoronavirusService {
 
     @Override
