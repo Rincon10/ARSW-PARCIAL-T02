@@ -10,11 +10,9 @@ import java.util.List;
  * @version 10/28/2021
  */
 public interface ICoronavirusService {
-    //Get petition
+    List<CovidCase> getAllCases() throws CoronavirusServicesException;
 
-    List<CovidCase> getAllCases();
-
-    List<CovidCase> getCasesByCountry( String countryName );
+    List<CovidCase> getCasesByCountry( String countryName ) throws CoronavirusServicesException;
 
 
 }
