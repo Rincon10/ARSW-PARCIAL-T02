@@ -1,9 +1,7 @@
 package edu.eci.arsw.coronavirus.services;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
-import edu.eci.arsw.coronavirus.model.CovidCase;
-import org.springframework.stereotype.Service;
-
+import edu.eci.arsw.coronavirus.model.CovidStatistic;
 import java.util.List;
 
 /**
@@ -11,9 +9,9 @@ import java.util.List;
  * @version 10/28/2021
  */
 public interface ICoronavirusService {
-    List<CovidCase> getAllCases() throws CoronavirusServicesException;
+    List<CovidStatistic> getAllCases() throws CoronavirusServicesException, UnirestException;
 
-    CovidCase getCasesByCountry( String countryName ) throws CoronavirusServicesException, UnirestException;
+    CovidStatistic getCasesByCountry( String countryName ) throws CoronavirusServicesException, UnirestException;
 
 
 }
