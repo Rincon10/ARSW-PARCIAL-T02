@@ -33,7 +33,7 @@ public class CoronavirusService implements ICoronavirusService {
         ObjectMapper mapper = new ObjectMapper();
         CovidStatistic statistic = new CovidStatisticTotalNumber();
         try {
-            statistic = mapper.readValue( data.toString(), CovidStatistic.class);
+            statistic = mapper.readValue( data.toString(), CovidStatisticTotalNumber.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
