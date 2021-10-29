@@ -4,11 +4,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import edu.eci.arsw.coronavirus.model.CovidStatistic;
+import edu.eci.arsw.coronavirus.services.CoronavirusServicesException;
 import edu.eci.arsw.coronavirus.services.ICoronavirusService;
 import edu.eci.arsw.coronavirus.services.IHttpConnectionServices;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,6 +24,8 @@ import java.util.List;
  */
 @Service
 public class CoronavirusService implements ICoronavirusService {
+    private String[] countries = {"Colombia", "China", "Canada", "US"};
+
     @Autowired
     IHttpConnectionServices http;
 
@@ -37,10 +42,16 @@ public class CoronavirusService implements ICoronavirusService {
 
     @Override
     public List<CovidStatistic> getAllCases() throws UnirestException {
-        JSONObject responseBody = http.getAllCases();
+        List<CovidStatistic > statistics = new ArrayList<>();
 
+        for ( String countryName : countries ) {
+            JSONObject responseBody = http.getCasesByCountry(countryName);
+            JSONObject data = responseBody.getJSONObject("data");
+            statistics.add( createStatistic(data) );
+        }
 
-        return null;
+        return statistics;
+
 
     }
 
@@ -50,6 +61,11 @@ public class CoronavirusService implements ICoronavirusService {
         JSONObject data = responseBody.getJSONObject("data");
 
         return createStatistic(data);
+    }
+
+    @Override
+    public List getStatsByCountry(String countryName) throws CoronavirusServicesException, UnirestException {
+        return null;
     }
 }
 

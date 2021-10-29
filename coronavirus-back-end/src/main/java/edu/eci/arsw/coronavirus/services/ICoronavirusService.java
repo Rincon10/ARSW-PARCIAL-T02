@@ -13,5 +13,6 @@ public interface ICoronavirusService {
 
     CovidStatistic getCasesByCountry( String countryName ) throws CoronavirusServicesException, UnirestException;
 
+    List<CovidStatistic> getStatsByCountry( String countryName ) throws CoronavirusServicesException, UnirestException;
 
 }

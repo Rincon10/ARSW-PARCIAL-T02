@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class HttpConnectionServices implements IHttpConnectionServices {
     private final String HOST = "covid-19-coronavirus-statistics.p.rapidapi.com";
     private final String KEY = "4f04707326msh95e7ff3629c20d0p119c81jsn52a936c0ca0a";
-    private final String URL = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/total";
+    private final String URL = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/";
 
     public HttpConnectionServices(){
 
@@ -32,15 +32,16 @@ public class HttpConnectionServices implements IHttpConnectionServices {
 
     @Override
     public JSONObject getCasesByCountry(String country) throws UnirestException {
-        HttpResponse<String> response = petition( URL+"?country="+country );
+        HttpResponse<String> response = petition( URL+"total?country="+country );
         JSONObject jsonpObject = new JSONObject(response.getBody());
         return jsonpObject;
     }
 
     @Override
-    public JSONObject getAllCases() throws UnirestException {
-        HttpResponse<String> response = petition( URL );
+    public JSONObject getStatsByCountry(String country) throws UnirestException {
+        HttpResponse<String> response = petition( URL+"stats?country="+country );
         JSONObject jsonpObject = new JSONObject(response.getBody());
         return jsonpObject;
     }
+
 }

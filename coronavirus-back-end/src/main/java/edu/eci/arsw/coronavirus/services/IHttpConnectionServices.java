@@ -10,5 +10,5 @@ import org.json.JSONObject;
 public interface IHttpConnectionServices {
     JSONObject getCasesByCountry(String country ) throws UnirestException;
 
-    JSONObject getAllCases() throws UnirestException;
+    JSONObject getStatsByCountry(String country ) throws UnirestException;
 }
