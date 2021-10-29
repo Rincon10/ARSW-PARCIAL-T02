@@ -3,7 +3,7 @@ package edu.eci.arsw.coronavirus.services.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import edu.eci.arsw.coronavirus.model.CovidStatistic;
+import edu.eci.arsw.coronavirus.model.*;
 import edu.eci.arsw.coronavirus.services.CoronavirusServicesException;
 import edu.eci.arsw.coronavirus.services.ICoronavirusService;
 import edu.eci.arsw.coronavirus.services.IHttpConnectionServices;
@@ -31,7 +31,7 @@ public class CoronavirusService implements ICoronavirusService {
 
     private CovidStatistic createStatistic(JSONObject data ){
         ObjectMapper mapper = new ObjectMapper();
-        CovidStatistic statistic = new CovidStatistic();
+        CovidStatistic statistic = new CovidStatisticTotalNumber();
         try {
             statistic = mapper.readValue( data.toString(), CovidStatistic.class);
         } catch (JsonProcessingException e) {
