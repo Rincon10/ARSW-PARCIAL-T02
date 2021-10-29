@@ -61,7 +61,6 @@ public class CoronavirusService implements ICoronavirusService {
             JSONObject data = responseBody.getJSONObject("data");
             statistics.add( createStatistic(data) );
         }
-
         return statistics;
 
 
