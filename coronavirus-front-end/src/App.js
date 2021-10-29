@@ -15,11 +15,12 @@ const App = () => {
                 setCountries(response);
             });
         
-    }, []);
+    }, [countries]);
 
     const handleChange = ( event ) =>{
         const { value } = event.target;
         setCountry( value ); 
+        
     }
     return (
         <div>
