@@ -11,8 +11,15 @@ h1 {
     width: 100%;
     background-color: #ccc;
     color: #000;
+    margin: 30px 0px;
 }
 
 .div-input ::placeholder{
     color: #000;
 }
+
+.flex-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}   
