@@ -7,6 +7,7 @@ import edu.eci.arsw.coronavirus.model.*;
 import edu.eci.arsw.coronavirus.services.CoronavirusServicesException;
 import edu.eci.arsw.coronavirus.services.ICoronavirusService;
 import edu.eci.arsw.coronavirus.services.IHttpConnectionServices;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,17 @@ public class CoronavirusService implements ICoronavirusService {
 
     @Autowired
     IHttpConnectionServices http;
+
+    private CovidStatistic createStatisticAllCountries(JSONObject data ){
+        ObjectMapper mapper = new ObjectMapper();
+        CovidStatistic statistic = new CovidStatisticAllCountries();
+        try {
+            statistic = mapper.readValue( data.toString(), CovidStatisticAllCountries.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return statistic;
+    }
 
     private CovidStatistic createStatistic(JSONObject data ){
         ObjectMapper mapper = new ObjectMapper();
@@ -64,8 +76,15 @@ public class CoronavirusService implements ICoronavirusService {
     }
 
     @Override
-    public List getStatsByCountry(String countryName) throws CoronavirusServicesException, UnirestException {
-        return null;
+    public List<CovidStatistic> getStatsByCountry(String countryName) throws  UnirestException {
+        List<CovidStatistic > statistics = new ArrayList<>();
+
+        JSONObject responseBody = http.getStatsByCountry(countryName);
+        JSONArray data = responseBody.getJSONObject("data").getJSONArray("covid19Stats");
+        data.forEach( covidCase -> {
+            statistics.add( createStatisticAllCountries((JSONObject) covidCase) );
+        });
+        return statistics;
     }
 }
 
