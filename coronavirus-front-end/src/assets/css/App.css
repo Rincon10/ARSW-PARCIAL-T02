@@ -1,0 +1,18 @@
+body {
+    background-color: #f7d547;
+}
+
+h1 {
+    padding: 50px;
+}
+
+
+.div-input {
+    width: 100%;
+    background-color: #ccc;
+    color: #000;
+}
+
+.div-input ::placeholder{
+    color: #000;
+}
