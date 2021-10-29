@@ -61,7 +61,7 @@ public class CoronavirusStatsController {
         } catch (CoronavirusServicesException ex) {
             Logger.getLogger(CoronavirusStatsController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
-        } catch (UnirestException e) {
+        } catch (UnirestException e ) {
             e.printStackTrace();
             Logger.getLogger(CoronavirusStatsController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>(e.getMessage(), HttpStatus.FORBIDDEN);
